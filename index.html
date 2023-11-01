@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizspiel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quizspiel</h1>
+        <div class="question-container">
+            <p id="question">Frage wird hier angezeigt</p>
+        </div>
+        <div class="options-container">
+            <button class="option" id="option1">Option 1</button>
+            <button class="option" id="option2">Option 2</button>
+            <button class="option" id="option3">Option 3</button>  
+        </div>
+            <div class="countdown" id="timer">30</div>  
+        <div class="result-container" style="display: none;">
+            <p id="result"></p>
+        
+        </div>
+    </div>
+    <audio id="audio" src="ping.mp3"></audio>
+    <script src="index.js"></script>
+</body>
+</html>
