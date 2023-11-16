@@ -17,7 +17,7 @@ const questions = [
     },
     {
         question: "Wie viele Geschwister hat Ron Weasley?",
-        options: ["3", "4", "5"],
+        options: ["3", "6", "5"],
         correctIndex: 1
     },
     {
@@ -55,6 +55,22 @@ const questions = [
 const timerElement = document.getElementById("timer");
 const questionElement = document.getElementById("question");
 const audioElement = document.getElementById("audio"); // Das Audio-Element
+
+
+// Funktion zum Mischen eines Arrays
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Mische die Reihenfolge der Fragen
+shuffleArray(questions);
+
+
+
+
 
 // timer function
 

@@ -4,7 +4,7 @@ body {
 }
 
 .quiz-container {
-    background-color: #c94c4c75;
+    background-color: #2812128c;
     border-radius: 50px;
     width: 400px;
     margin: auto;
@@ -19,18 +19,22 @@ body {
 h1 {
     text-align: center;
     font-size: 35px;
+    color: white;
 }
-
+/* die fragen  */
 .question-container {
     margin-bottom: 20px;
-    font-size: 25px;
-    
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+
 }
 
 .options-container {
     display: flex;
     flex-direction: column;
-      
+  
+
 }
 
 .option {
@@ -47,19 +51,20 @@ h1 {
 .option:hover {
     background-color: #e6e6e6;
 }
-
+/* für das Ergebniss */
 .result-container {
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
     display: none;
+    color: white;
 }
-
+/* timer box */
 .countdown {
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.549);
     font-size: 35px;
     color: rgb(245, 56, 245);
-    border: 5px solid rgb(0, 15, 14);
+    /* border: 5px solid rgb(0, 15, 14); */
     padding: 10px;
     text-align: center;
     width: 300px;
@@ -67,9 +72,27 @@ h1 {
     border-radius: 30px;
 }
 
+/* Der reload button */
 .load {
     text-align: center;
-    margin-top: 20px;
+    margin-left: 160px;
+    font-size: 10;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgb(253, 253, 253);
+}
+
+/* footer für die linke untere ecke  */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 13%;
+    background-color: #040404b9;
+    color: white;
+    text-align: center;
     font-size: 20px;
-   
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgb(253, 253, 253);
 }
