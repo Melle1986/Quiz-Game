@@ -1,65 +1,86 @@
+//  die Fragen und Antworten werden hier in einem Array gespeichert
 const questions = [
     {
-        question: "Was ist die Hauptstadt von Frankreich?",
-        options: ["Berlin", "Madrid", "Paris"],
+        question: "Wie heißt der Schulleiter von Hogwarts?",
+        options: ["Dumbledore", "Snape", "McGonagall"],
+        correctIndex: 0
+    },
+    {
+        question: "Welches Haus gehört Harry Potter an?",
+        options: ["Gryffindor", "Hufflepuff", "Ravenclaw"],
+        correctIndex: 0
+    },
+    {
+        question: "Was ist der Patronus von Harry Potter?",
+        options: ["Hirsch", "Eule", "Hund"],
+        correctIndex: 0
+    },
+    {
+        question: "Wie viele Geschwister hat Ron Weasley?",
+        options: ["3", "4", "5"],
+        correctIndex: 1
+    },
+    {
+        question: "Was ist der Name von Harrys Eule?",
+        options: ["Hedwig", "Errol", "Crookshanks"],
+        correctIndex: 0
+    },
+    {
+        question: "Welcher Lehrer unterrichtet Verteidigung gegen die dunklen Künste im ersten Buch?",
+        options: ["Quirrell", "Lockhart", "Snape"],
+        correctIndex: 0
+    },
+    {
+        question: "Was ist der Name des Zaubereiministeriums-Sprechenden Huts?",
+        options: ["Fawkes", "Sorting Hat", "Gryffindor Hat"],
+        correctIndex: 1
+    },
+    {
+        question: "Welche Zutat fehlt Harry, um den Polyjuice-Trank zu vollenden?",
+        options: ["Schlangenhaut", "Ein Haar von Millicent Bulstrode", "Ein Tropfen Einhornblut"],
+        correctIndex: 1
+    },
+    {
+        question: "Was ist der Name des geflügelten Pferdes, das Hagrid in den Verbotenen Wald bringt?",
+        options: ["Buckbeak", "Thestral", "Fluffy"],
+        correctIndex: 0
+    },
+    {
+        question: "Wie viele Teile hat die Buchreihe 'Harry Potter'?",
+        options: ["5", "6", "7"],
         correctIndex: 2
     },
-    {
-        question: "Welches Element hat das chemische Symbol 'H'?",
-        options: ["Helium", "Wasserstoff", "Stickstoff"],
-        correctIndex: 1
-    },
-    {
-        question: "Wie viele Planeten gibt es in unserem Sonnensystem?",
-        options: ["6", "8", "9"],
-        correctIndex: 1
-    },
-
-    {
-        question: "Wie viele Bundesländer hat Deutschland?",
-        options: ["14", "16", "18"],
-        correctIndex: 1
-    },
-
-    {
-        question: "Wie viele Bundesländer hat Österreich?",
-        options: ["6", "8", "9"],
-        correctIndex: 1
-    },
-
 ];
 
 const timerElement = document.getElementById("timer");
+const questionElement = document.getElementById("question");
 const audioElement = document.getElementById("audio"); // Das Audio-Element
 
-function startTimer(seconds) {
-    let timeLeft = seconds;
-    let timer;
+// timer function
 
-    function updateTimer() {
-        if (timeLeft === 0) {
-            clearInterval(timer);
-            checkAnswer(-1);
-            playSound(); // die function für den sound wird aufgerufen
-        } else {
-            timeLeft--;
-            timerElement.textContent = timeLeft;
+function startTimer(duration) {
+    let timer = duration,
+    minutes,
+    seconds;
+    timerinterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds; //wenn die sekunden kleiner als 10 sind, dann wird eine 0 vor die zahl gesetzt
+        timerElement.textContent = minutes + ":" + seconds;
+        if (--timer < 0) {
+            timer = duration;
         }
     }
-
-    updateTimer();
-    timer = setInterval(updateTimer, 1000);
-
+    , 1000);
 }
+
+
 
 function playSound() {
-    audioElement.play();   //hier wird das audio element mit abgespielt 
+audioElement.play("ping.mp3");   //hier wird das audio element mit abgespielt 
 }
+startTimer(180);
 
-
-startTimer(30);
-
-const questionElement = document.getElementById("question");
 const optionElements = document.querySelectorAll(".option");
 const resultElement = document.getElementById("result");
 const resultContainer = document.querySelector(".result-container");
