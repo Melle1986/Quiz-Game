@@ -91,10 +91,9 @@ function startTimer(duration) {
 }
 
 
-
-function playSound() {
-audioElement.play("ping.mp3");   //hier wird das audio element mit abgespielt 
-}
+// function playSound() {
+// audioElement.play("ping.mp3");   //hier wird das audio element mit abgespielt 
+// }
 startTimer(180);
 
 const optionElements = document.querySelectorAll(".option");
@@ -144,3 +143,28 @@ optionElements.forEach((option, index) => {
 
 showQuestion();
 
+// Reload Button damit das spiel neu geladen werden kann 
+const reloadButton = document.querySelector(".load");
+
+reloadButton.addEventListener("click", () => {
+    location.reload(); 
+});
+
+// Audio Button damit das Audio play pause 
+
+const audioButton = document.getElementById("audioButton");
+const audioElement1 = new Audio("harry_potter.mp3");
+
+audioButton.addEventListener("click", () => {
+    playAudio();
+});
+
+function playAudio() {
+    if (audioElement1.paused) {
+        audioElement1.play();
+        audioButton.textContent = "Pause Audio";
+    } else {
+        audioElement1.pause();
+        audioButton.textContent = "Play Audio";
+    }
+}
